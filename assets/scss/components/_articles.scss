@@ -1,0 +1,10 @@
+.articles {
+}
+
+.article {
+  &__body {
+    .prism-previewer {
+      z-index: 1;
+    }
+  }
+}

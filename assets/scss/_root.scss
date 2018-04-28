@@ -1,0 +1,102 @@
+body {
+  font-size: $base-font-size;
+}
+
+h1 {
+  margin-left: -0.3rem;
+}
+
+p {
+  font-size: $base-font-size;
+  line-height: $base-font-size * $base-line-height;
+}
+
+a {
+  color: $text-dark;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.25s all; // @include smart-underline($background-colour, $text-dark, $selection);
+  @include smart-underline($background-colour, $accent-colour, $selection);
+  &:hover {
+    color: $text-dark;
+    @include smart-underline($background-colour, $accent-colour, $selection);
+    opacity: 0.5;
+  }
+}
+
+a.light {
+  color: $text-light;
+  @include smart-underline($primary-colour, $accent-colour, $selection);
+  &:hover {
+    @include smart-underline($primary-colour, $accent-colour, $selection);
+  }
+}
+
+a.lightgray {
+  color: $text-grey;
+}
+
+a.none {
+  background: none;
+  text-shadow: none;
+  text-decoration: none;
+}
+
+a.fa {
+  background: none;
+  text-shadow: none;
+  text-decoration: none;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+li {
+  padding: 0.5rem 0;
+  line-height: $base-line-height;
+}
+
+ul.none {
+  margin-top: 0;
+  padding-left: 0;
+  list-style-type: none;
+  line-height: 2;
+}
+
+footer {
+  margin-top: 2rem;
+}
+
+blockquote {
+  margin: 0;
+  padding-left: 1rem;
+  color: $quote-colour;
+  border-left: solid 0.25rem $quote-border;
+}
+
+hr {
+  height: 0.25rem;
+  margin: 1rem 0;
+  background-color: $quote-border;
+  border: none;
+}
+
+pre {
+  a {
+    text-shadow: none;
+  }
+}
+
+table {
+  padding: 0.5rem 0;
+  th,
+  td {
+    padding: 0.5rem;
+  }
+  th {
+    padding-bottom: 0;
+  }
+  tbody tr:nth-child(odd) {
+    background-color: $table-row-colour;
+  }
+}

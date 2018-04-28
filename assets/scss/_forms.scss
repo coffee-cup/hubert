@@ -1,0 +1,63 @@
+input,
+textarea,
+button {
+  padding: 0.5rem;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+.form-group {
+  display: flex;
+  margin-bottom: 0.5rem;
+  flex-direction: column;
+  input,
+  textarea {
+    margin: 0;
+  }
+}
+
+.form-label-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+  font-family: $sans;
+  font-size: 0.8rem;
+  .help-block {
+    color: $red;
+  }
+}
+
+input,
+.input,
+textarea {
+  margin: 0.5rem 0;
+  width: 100%;
+  color: $text-dark;
+  background-color: $lightgray;
+  border-radius: $bradius;
+  font-size: 1.1rem;
+  &::placeholder {
+    color: $text-grey;
+  }
+}
+
+textarea.editor {
+  min-height: 300px;
+}
+
+input[type='checkbox'] {
+  outline: none;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: $bradius;
+  transition: background-color 250ms ease-out;
+  &:checked {
+    background-color: $primary-colour;
+  }
+}
