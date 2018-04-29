@@ -6,15 +6,15 @@
 use Mix.Config
 
 # General application configuration
-config :plants,
-  ecto_repos: [Plants.Repo]
+config :hubert,
+  ecto_repos: [Hubert.Repo]
 
 # Configures the endpoint
-config :plants, PlantsWeb.Endpoint,
+config :hubert, HubertWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "CCyZcJExM055Ak0COL8+Jv+XwP2fD0SQbaffiWITKVK/gtnSY2nmdPytD96GM5ed",
-  render_errors: [view: PlantsWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Plants.PubSub,
+  render_errors: [view: HubertWeb.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: Hubert.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
@@ -23,10 +23,10 @@ config :logger, :console,
   metadata: [:user_id]
 
 # Configures basic auth
-config :plants, auth: [
+config :hubert, auth: [
   username: "username",
-  password: "password",
-  realm: "plants"
+  password: "hello",
+  realm: "hubert"
  ]
 
 # Import environment specific config. This must remain at the bottom

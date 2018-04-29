@@ -1,4 +1,4 @@
-defmodule PlantsWeb.ErrorHelpers do
+defmodule HubertWeb.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """
@@ -36,9 +36,9 @@ defmodule PlantsWeb.ErrorHelpers do
     # should be written to the errors.po file. The :count option is
     # set by Ecto and indicates we should also apply plural rules.
     if count = opts[:count] do
-      Gettext.dngettext(PlantsWeb.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(HubertWeb.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(PlantsWeb.Gettext, "errors", msg, opts)
+      Gettext.dgettext(HubertWeb.Gettext, "errors", msg, opts)
     end
   end
 end

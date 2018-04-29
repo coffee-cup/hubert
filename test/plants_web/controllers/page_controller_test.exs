@@ -1,5 +1,5 @@
-defmodule PlantsWeb.PageControllerTest do
-  use PlantsWeb.ConnCase
+defmodule HubertWeb.PageControllerTest do
+  use HubertWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get conn, "/"

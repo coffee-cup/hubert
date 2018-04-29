@@ -1,6 +1,6 @@
-defmodule Plants do
+defmodule Hubert do
   @moduledoc """
-  Plants keeps the contexts that define your domain
+  Hubert keeps the contexts that define your domain
   and business logic.
 
   Contexts are also responsible for managing your data, regardless

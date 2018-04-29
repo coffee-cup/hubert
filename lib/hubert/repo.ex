@@ -1,5 +1,5 @@
-defmodule Plants.Repo do
-  use Ecto.Repo, otp_app: :plants
+defmodule Hubert.Repo do
+  use Ecto.Repo, otp_app: :hubert
 
   @doc """
   Dynamically loads the repository url from the

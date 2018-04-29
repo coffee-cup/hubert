@@ -1,14 +1,14 @@
-defmodule PlantsWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :plants
+defmodule HubertWeb.Endpoint do
+  use Phoenix.Endpoint, otp_app: :hubert
 
-  socket "/socket", PlantsWeb.UserSocket
+  socket "/socket", HubertWeb.UserSocket
 
   # Serve at "/" the static files from "priv/static" directory.
   #
   # You should set gzip to true if you are running phoenix.digest
   # when deploying your static files in production.
   plug Plug.Static,
-    at: "/", from: :plants, gzip: true
+    at: "/", from: :hubert, gzip: true
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
@@ -33,10 +33,10 @@ defmodule PlantsWeb.Endpoint do
   # Set :encryption_salt if you would also like to encrypt it.
   plug Plug.Session,
     store: :cookie,
-    key: "_plants_key",
+    key: "_hubert_key",
     signing_salt: "JPL29c/0"
 
-  plug PlantsWeb.Router
+  plug HubertWeb.Router
 
   @doc """
   Callback invoked for dynamically configuring the endpoint.

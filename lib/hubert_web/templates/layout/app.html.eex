@@ -49,7 +49,7 @@
         <%= render @view_module, @view_template, assigns %>
       </main>
 
-      <%= render PlantsWeb.SharedView, "footer.html", assigns %>
+      <%= render HubertWeb.SharedView, "footer.html", assigns %>
 
     </div> <!-- /container -->
 

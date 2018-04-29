@@ -1,4 +1,4 @@
-defmodule PlantsWeb.ChannelCase do
+defmodule HubertWeb.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -21,15 +21,15 @@ defmodule PlantsWeb.ChannelCase do
       use Phoenix.ChannelTest
 
       # The default endpoint for testing
-      @endpoint PlantsWeb.Endpoint
+      @endpoint HubertWeb.Endpoint
     end
   end
 
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Plants.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Hubert.Repo)
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Plants.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Hubert.Repo, {:shared, self()})
     end
     :ok
   end

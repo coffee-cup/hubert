@@ -1,3 +1,3 @@
-defmodule PlantsWeb.PageViewTest do
-  use PlantsWeb.ConnCase, async: true
+defmodule HubertWeb.PageViewTest do
+  use HubertWeb.ConnCase, async: true
 end

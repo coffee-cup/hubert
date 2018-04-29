@@ -6,7 +6,7 @@ use Mix.Config
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with brunch.io to recompile .js and .css sources.
-config :plants, PlantsWeb.Endpoint,
+config :hubert, HubertWeb.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
@@ -30,13 +30,13 @@ config :plants, PlantsWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :plants, PlantsWeb.Endpoint,
+config :hubert, HubertWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
-      ~r{lib/plants_web/views/.*(ex)$},
-      ~r{lib/plants_web/templates/.*(eex)$}
+      ~r{lib/hubert_web/views/.*(ex)$},
+      ~r{lib/hubert_web/templates/.*(eex)$}
     ]
   ]
 
@@ -48,10 +48,10 @@ config :logger, :console, format: "[$level] $message\n"
 config :phoenix, :stacktrace_depth, 20
 
 # Configure your database
-config :plants, Plants.Repo,
+config :hubert, Hubert.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
   password: "postgres",
-  database: "plants_dev",
+  database: "hubert_dev",
   hostname: "localhost",
   pool_size: 10

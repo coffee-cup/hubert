@@ -1,5 +1,5 @@
-defmodule PlantsWeb.ErrorView do
-  use PlantsWeb, :view
+defmodule HubertWeb.ErrorView do
+  use HubertWeb, :view
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.

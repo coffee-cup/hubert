@@ -1,5 +1,5 @@
-defmodule PlantsWeb.Router do
-  use PlantsWeb, :router
+defmodule HubertWeb.Router do
+  use HubertWeb, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -14,10 +14,10 @@ defmodule PlantsWeb.Router do
   end
 
   pipeline :auth do
-    plug BasicAuth, use_config: {:plants, :auth}
+    plug BasicAuth, use_config: {:hubert, :auth}
   end
 
-  scope "/", PlantsWeb do
+  scope "/", HubertWeb do
     pipe_through :browser # Use the default browser stack
     pipe_through :auth
 
@@ -25,7 +25,7 @@ defmodule PlantsWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", PlantsWeb do
+  # scope "/api", HubertWeb do
   #   pipe_through :api
   # end
 end
