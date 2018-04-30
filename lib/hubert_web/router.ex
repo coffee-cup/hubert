@@ -22,6 +22,7 @@ defmodule HubertWeb.Router do
     pipe_through :auth
 
     get "/", PageController, :index
+    get "/plants", PlantController, :index
   end
 
   # Other scopes may use custom stacks.
