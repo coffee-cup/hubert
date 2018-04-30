@@ -4,7 +4,7 @@ defmodule Hubert.Data.Point do
 
 
   schema "points" do
-    field :value, :decimal
+    field :value, :float
     belongs_to :sensor, Hubert.Data.Sensor
 
     timestamps()

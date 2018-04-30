@@ -9,6 +9,5 @@ defmodule Hubert.Repo.Migrations.CreateSensors do
 
       timestamps()
     end
-
   end
 end

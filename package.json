@@ -9,7 +9,7 @@
   },
   "scripts": {
     "watch": "webpack --mode=development --watch --progress --color",
-    "build": "NODE_ENV=production MIX_ENV=prod webpack -p --mode=production --progress",
+    "build": "NODE_ENV=production MIX_ENV=prod webpack -p  --mode=production --progress",
     "test": "mix test && npm run build"
   },
   "author": "Jake Runzer <=>",

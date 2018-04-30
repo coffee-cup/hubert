@@ -3,7 +3,7 @@ defmodule Hubert.Repo.Migrations.CreatePoints do
 
   def change do
     create table(:points) do
-      add :value, :decimal
+      add :value, :float
       add :sensor_id, references(:sensors, on_delete: :delete_all)
 
       timestamps()

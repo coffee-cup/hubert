@@ -8,5 +8,6 @@ defmodule Hubert.Repo.Migrations.CreateSystems do
       timestamps()
     end
 
+    create unique_index(:systems, [:name])
   end
 end

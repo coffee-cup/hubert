@@ -15,6 +15,6 @@ defmodule Hubert.Data.Sensor do
   def changeset(sensor, attrs) do
     sensor
     |> cast(attrs, [:name, :units])
-    |> validate_required([:name, :units])
+    |> validate_required([:name, :units, :system_id])
   end
 end
