@@ -21,6 +21,15 @@ defmodule HubertWeb.ConnCase do
       use Phoenix.ConnTest
       import HubertWeb.Router.Helpers
 
+
+      defp using_basic_auth(conn) do
+        username = Application.get_env(:hubert, :basic_auth)[:username]
+        password = Application.get_env(:hubert, :basic_auth)[:password]
+
+        header_content = "Basic " <> Base.encode64("#{username}:#{password}")
+        conn |> put_req_header("authorization", header_content)
+      end
+
       # The default endpoint for testing
       @endpoint HubertWeb.Endpoint
     end

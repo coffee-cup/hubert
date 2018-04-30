@@ -23,7 +23,7 @@ config :logger, :console,
   metadata: [:user_id]
 
 # Configures basic auth
-config :hubert, auth: [
+config :hubert, basic_auth: [
   username: "username",
   password: "hello",
   realm: "hubert"

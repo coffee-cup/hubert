@@ -14,7 +14,7 @@ defmodule HubertWeb.Router do
   end
 
   pipeline :auth do
-    plug BasicAuth, use_config: {:hubert, :auth}
+    plug BasicAuth, use_config: {:hubert, :basic_auth}
   end
 
   scope "/", HubertWeb do
