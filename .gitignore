@@ -168,3 +168,4 @@ erl_crash.dump
 .travis/*travis_dokku
 .travis/*travis_dokku.pub
 .tern-port
+rest
