@@ -5,7 +5,7 @@ defmodule Hubert.Repo.Migrations.CreateSensors do
     create table(:sensors) do
       add :name, :string
       add :units, :string
-      add :project_id, references(:projects, on_delete: :delete_all)
+      add :system_id, references(:systems, on_delete: :delete_all)
 
       timestamps()
     end

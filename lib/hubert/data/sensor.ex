@@ -6,7 +6,7 @@ defmodule Hubert.Data.Sensor do
   schema "sensors" do
     field :name, :string
     field :units, :string
-    belongs_to :project, Hubert.Project
+    belongs_to :system, Hubert.System
 
     timestamps()
   end

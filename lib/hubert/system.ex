@@ -1,17 +1,17 @@
-defmodule Hubert.Project do
+defmodule Hubert.System do
   use Ecto.Schema
   import Ecto.Changeset
 
 
-  schema "projects" do
+  schema "systems" do
     field :name, :string
 
     timestamps()
   end
 
   @doc false
-  def changeset(project, attrs) do
-    project
+  def changeset(system, attrs) do
+    system
     |> cast(attrs, [:name])
     |> validate_required([:name])
   end

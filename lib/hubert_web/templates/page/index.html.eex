@@ -1,3 +1,10 @@
-<div class="home">
-  <h1>Hubert</h1>
+<div class="home vh vertical-center">
+  <div class="w-50">
+    <h1 class="mt0">This is Hubert.</h1>
+    <ul class="systems none ml2">
+      <li class="plants">
+        <a href="/plants">Plants</a>
+      </li>
+    </ul>
+  </div>
 </div>
