@@ -3,17 +3,12 @@ defmodule Hubert.System do
   import Ecto.Changeset
 
   alias Hubert.Repo
-  alias Hubert.System
 
   schema "systems" do
     field :name, :string
+    has_many :sensors, Hubert.Data.Sensor
 
     timestamps()
-  end
-
-  def create_system(name) do
-    System.changeset(%System{}, %{name: name})
-    |> Repo.insert
   end
 
   @doc false

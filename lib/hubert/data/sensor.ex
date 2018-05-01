@@ -2,11 +2,12 @@ defmodule Hubert.Data.Sensor do
   use Ecto.Schema
   import Ecto.Changeset
 
-
   schema "sensors" do
     field :name, :string
     field :units, :string
+    field :symbol
     belongs_to :system, Hubert.System
+    has_many :points, Hubert.Data.Point
 
     timestamps()
   end
@@ -14,7 +15,7 @@ defmodule Hubert.Data.Sensor do
   @doc false
   def changeset(sensor, attrs) do
     sensor
-    |> cast(attrs, [:name, :units])
-    |> validate_required([:name, :units, :system_id])
+    |> cast(attrs, [:name, :units, :symbol])
+    |> validate_required([:name, :units, :symbol, :system_id])
   end
 end
