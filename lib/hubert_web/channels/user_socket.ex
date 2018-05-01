@@ -3,6 +3,7 @@ defmodule HubertWeb.UserSocket do
 
   ## Channels
   # channel "room:*", HubertWeb.RoomChannel
+  channel "sensor:*", HubertWeb.SensorChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
@@ -19,7 +20,9 @@ defmodule HubertWeb.UserSocket do
   #
   # See `Phoenix.Token` documentation for examples in
   # performing token verification on connect.
-  def connect(_params, socket) do
+  def connect(params, socket) do
+    IO.puts "\nCONNECT"
+    IO.inspect params
     {:ok, socket}
   end
 

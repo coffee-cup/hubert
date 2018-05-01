@@ -41,8 +41,7 @@ defmodule Hubert.Systems.PlantSystem do
   Get the plant `%System{}`
   """
   def plant_system do
-    {system, _} = create_if_needed()
-    system
+    Data.get_system(@system_name)
   end
 
   @doc """
@@ -89,9 +88,17 @@ defmodule Hubert.Systems.PlantSystem do
   Parse a data string `str` into data points and add to the sensors
   """
   def insert_data(moisture_value, light_value) do
-    Data.create_point(%{value: moisture_value}, moisture_sensor())
-    Data.create_point(%{value: light_value}, light_sensor())
+    s_moisture = moisture_sensor()
+    s_light = light_sensor()
 
-    :ok
+    {:ok, p_moisture} = Data.create_point(%{value: moisture_value}, s_moisture)
+    {:ok, p_light} = Data.create_point(%{value: light_value}, s_light)
+
+    %{
+      s_moisture: s_moisture,
+      s_light: s_light,
+      p_moisture: p_moisture,
+      p_light: p_light
+    }
   end
 end
