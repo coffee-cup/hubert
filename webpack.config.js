@@ -18,7 +18,8 @@ console.log(
 
 const config = {
   entry: {
-    app: './assets/js/app.js'
+    app: './assets/js/app.js',
+    plants: './assets/js/plants.js'
   },
 
   output: {

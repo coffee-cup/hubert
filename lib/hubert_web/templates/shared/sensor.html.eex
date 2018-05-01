@@ -3,6 +3,6 @@
   <%= json_points(@sensor) %>
 
   <script>
-    window.<%= sensor_slug(@sensor) %>_data = JSON.parse(`<%= raw(json_points(@sensor)) %>`);
+    window.<%= Sensor.slug(@sensor) %>_data = JSON.parse(`<%= raw(json_points(@sensor)) %>`);
   </script>
 </div>

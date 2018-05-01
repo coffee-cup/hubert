@@ -12,6 +12,13 @@ defmodule Hubert.Data.Sensor do
     timestamps()
   end
 
+  def slug(sensor) do
+    sensor
+    |> Map.get(:name)
+    |> String.downcase
+    |> String.replace(" ", "-")
+  end
+
   @doc false
   def changeset(sensor, attrs) do
     sensor

@@ -6,3 +6,5 @@
   <%= render HubertWeb.SharedView, "sensor.html", Map.put(assigns, :sensor, @moisture) %>
   <%= render HubertWeb.SharedView, "sensor.html", Map.put(assigns, :sensor, @light) %>
 </div>
+
+<script src="<%= static_path(@conn, "/plants.js") %>"></script>
