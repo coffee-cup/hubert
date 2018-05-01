@@ -1,3 +1,8 @@
 <div class="plant">
-  <h1>Plants</h1>
+  <h1>
+    <span class="ph1 bg-dark-pink yellow">Plants</span>
+  </h1>
+
+  <%= render HubertWeb.SharedView, "sensor.html", Map.put(assigns, :sensor, @moisture) %>
+  <%= render HubertWeb.SharedView, "sensor.html", Map.put(assigns, :sensor, @light) %>
 </div>

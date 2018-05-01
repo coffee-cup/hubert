@@ -13,16 +13,15 @@ defmodule Hubert.Systems.PlantSystemTest do
 
     test "parse_data/1 parses a data string and inserts the data points" do
       # Create system and sensors
-      PlantSystem.plant_sensors()
-
-      str = "123:456"
-      :ok = PlantSystem.parse_and_insert_data(str)
+      moisture = 123
+      light = 456
+      :ok = PlantSystem.insert_data(moisture, light)
 
       [%Point{value: moisture_value}] = Data.get_points(PlantSystem.moisture_sensor())
-      assert moisture_value == 123
+      assert moisture_value == moisture
 
       [%Point{value: light_value}] = Data.get_points(PlantSystem.light_sensor())
-      assert light_value == 456
+      assert light_value == light
     end
   end
 end

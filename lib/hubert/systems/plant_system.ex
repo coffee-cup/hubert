@@ -41,7 +41,8 @@ defmodule Hubert.Systems.PlantSystem do
   Get the plant `%System{}`
   """
   def plant_system do
-    Data.get_system(@system_name)
+    {system, _} = create_if_needed()
+    system
   end
 
   @doc """
@@ -87,11 +88,7 @@ defmodule Hubert.Systems.PlantSystem do
   @doc """
   Parse a data string `str` into data points and add to the sensors
   """
-  def parse_and_insert_data(str) do
-    [moisture_value, light_value] = str
-    |> String.split(":")
-    |> Enum.map(&String.to_integer/1)
-
+  def insert_data(moisture_value, light_value) do
     Data.create_point(%{value: moisture_value}, moisture_sensor())
     Data.create_point(%{value: light_value}, light_sensor())
 

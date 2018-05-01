@@ -25,6 +25,12 @@ defmodule HubertWeb.Router do
     get "/plants", PlantController, :index
   end
 
+  scope "/sensor", HubertWeb do
+    pipe_through :api
+
+    post "/plants", PlantController, :sensors
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", HubertWeb do
   #   pipe_through :api
