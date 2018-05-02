@@ -1,11 +1,7 @@
 <div id="<%= Sensor.slug(@sensor) %>-graph" class="sensor">
   <h2><%= Map.get(@sensor, :name) %></h2>
 
-  <div class="points">
-  <%= for point <- Map.get(@sensor, :points) do %>
-      <p><%= Point.to_json(point) %></p>
-  <% end %>
-  </div>
+  <div class="graph"></div>
 
   <script>
     if (window.sensors === undefined) {

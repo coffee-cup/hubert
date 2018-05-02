@@ -15,6 +15,7 @@
   "author": "Jake Runzer <=>",
   "license": "MIT",
   "dependencies": {
+    "plotly.js": "^1.37.0",
     "tachyons": "^4.9.1"
   },
   "devDependencies": {
