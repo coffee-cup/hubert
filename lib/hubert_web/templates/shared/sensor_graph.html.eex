@@ -1,6 +1,4 @@
 <div id="<%= Sensor.slug(@sensor) %>-graph" class="sensor-graph">
-  <h2><%= Map.get(@sensor, :name) %></h2>
-
   <div class="graph"></div>
 
   <script>

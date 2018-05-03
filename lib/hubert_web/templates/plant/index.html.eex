@@ -1,6 +1,6 @@
 <div class="plant">
-  <h1>
-    <span class="ph1 bg-dark-pink yellow">Plants</span>
+  <h1 class="pa4 bg-light-green">
+    <span>Plants</span>
   </h1>
 
   <div class="values flex sb">

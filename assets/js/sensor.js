@@ -10,15 +10,57 @@ const sensorValueParent = sensor =>
 
 const sensorValue = sensor => sensorValueParent(sensor).querySelector('.value');
 
+const lineColour = '#4d3ae2';
+
 const createGraph = sensor => {
   const x = sensor.points.map(p => p.date);
   const y = sensor.points.map(p => p.value);
-  const data = [{ x, y, type: 'scatter' }];
+  const data = [
+    {
+      x,
+      y,
+      type: 'scatter',
+      line: {
+        color: lineColour,
+        dash: 'solid',
+        shape: 'spline',
+        smoothing: 0.1
+      },
+      marker: {
+        symbol: 'circle',
+        size: 6,
+        color: lineColour
+      }
+    }
+  ];
 
-  const m = 4;
+  const yRange = sensor.units === 'Percent' ? [0, 100] : null;
   const layout = {
+    title: sensor.name,
     autosize: true,
-    yaxis: { range: [0, 100] }
+    titlefont: {
+      size: 24
+    },
+    xaxis: {
+      title: '',
+      titlefont: {
+        size: 18
+      }
+    },
+    yaxis: {
+      range: yRange,
+      title: sensor.units,
+      titlefont: { size: 18 }
+    },
+    margin: {
+      l: 60,
+      r: 40,
+      t: 100,
+      b: 50,
+      pad: 0,
+      autoexpand: true
+    },
+    hoverdistance: 50
   };
 
   Plotly.newPlot(sensorGraph(sensor), data, layout);
@@ -34,7 +76,7 @@ const sensorUpdate = (sensor, val) => {
   Plotly.extendTraces(sensorGraph(sensor), update, [0]);
 
   // Update the value
-  sensorValue(sensor).innerText = val.value;
+  sensorValue(sensor).innerText = `${val.value} ${sensor.symbol}`;
 };
 
 const registerChannelUpdates = (socket, sensor) => {
