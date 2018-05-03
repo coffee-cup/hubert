@@ -74,7 +74,7 @@ defmodule Hubert.Data do
     get_sensor_and_points(name, id)
   end
   def get_sensor_and_points(name, system_id) do
-    points_query = from(p in Point, order_by: [desc: p.inserted_at])
+    points_query = from(p in Point, order_by: [asc: p.inserted_at])
     from(sensor in Sensor,
       where: [name: ^name, system_id: ^system_id],
       preload: [points: ^points_query]
@@ -98,7 +98,7 @@ defmodule Hubert.Data do
   def get_points(%Sensor{id: sensor_id}) do
     from(p in Point,
       where: p.sensor_id == ^sensor_id,
-      order_by: [desc: p.inserted_at]
+      order_by: [asc: p.inserted_at]
     ) |> Repo.all()
   end
 end

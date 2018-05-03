@@ -2,7 +2,13 @@ import Plotly from 'plotly.js/lib/core';
 
 const sensorGraphParent = sensor =>
   document.querySelector(`#${sensor.slug}-graph`);
+
 const sensorGraph = sensor => sensorGraphParent(sensor).querySelector('.graph');
+
+const sensorValueParent = sensor =>
+  document.querySelector(`#${sensor.slug}-value`);
+
+const sensorValue = sensor => sensorValueParent(sensor).querySelector('.value');
 
 const createGraph = sensor => {
   const x = sensor.points.map(p => p.date);
@@ -19,21 +25,16 @@ const createGraph = sensor => {
 };
 
 const sensorUpdate = (sensor, val) => {
-  console.log(`${sensor.name}`);
-  console.log(val);
-
-  // const points = sensorGraphParent(sensor).querySelector('.points');
-  // const newPoint = document.createElement('p');
-  // newPoint.innerHTML = JSON.stringify(val);
-  // points.insertBefore(newPoint, points.firstChild);
-
+  // Update the graph
   const update = {
     x: [[val.date]],
     y: [[val.value]]
   };
-  console.log(update);
 
   Plotly.extendTraces(sensorGraph(sensor), update, [0]);
+
+  // Update the value
+  sensorValue(sensor).innerText = val.value;
 };
 
 const registerChannelUpdates = (socket, sensor) => {

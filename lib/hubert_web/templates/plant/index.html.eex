@@ -3,8 +3,17 @@
     <span class="ph1 bg-dark-pink yellow">Plants</span>
   </h1>
 
-  <%= render HubertWeb.SharedView, "sensor_graph.html", Map.put(assigns, :sensor, @moisture) %>
-  <%= render HubertWeb.SharedView, "sensor_graph.html", Map.put(assigns, :sensor, @light) %>
+  <div class="values flex sb">
+    <%= render HubertWeb.SharedView, "sensor_value.html", Map.put(assigns, :sensor, @moisture) %>
+    <%= render HubertWeb.SharedView, "sensor_value.html", Map.put(assigns, :sensor, @light) %>
+    <%= render HubertWeb.SharedView, "sensor_value.html", Map.put(assigns, :sensor, @temp) %>
+  </div>
+
+  <div class="graphs">
+    <%= render HubertWeb.SharedView, "sensor_graph.html", Map.put(assigns, :sensor, @moisture) %>
+    <%= render HubertWeb.SharedView, "sensor_graph.html", Map.put(assigns, :sensor, @light) %>
+    <%= render HubertWeb.SharedView, "sensor_graph.html", Map.put(assigns, :sensor, @temp) %>
+  </div>
 </div>
 
 <script src="<%= static_path(@conn, "/plants.js") %>"></script>
