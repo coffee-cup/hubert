@@ -1,9 +1,9 @@
 <div class="plant">
-  <h1 class="pa4 bg-light-green">
+  <h1 class="pa4 mt0 mb1 bg-light-green">
     <span>Plants</span>
   </h1>
 
-  <div class="values flex sb">
+  <div class="values flex-ns sb">
     <%= render HubertWeb.SharedView, "sensor_value.html", Map.put(assigns, :sensor, @moisture) %>
     <%= render HubertWeb.SharedView, "sensor_value.html", Map.put(assigns, :sensor, @light) %>
     <%= render HubertWeb.SharedView, "sensor_value.html", Map.put(assigns, :sensor, @temp) %>

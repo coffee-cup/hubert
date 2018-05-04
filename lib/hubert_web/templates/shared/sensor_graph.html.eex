@@ -1,5 +1,5 @@
 <div id="<%= Sensor.slug(@sensor) %>-graph" class="sensor-graph">
-  <div class="graph"></div>
+  <div class="graph hide-small"></div>
 
   <script>
     if (window.sensors === undefined) {
