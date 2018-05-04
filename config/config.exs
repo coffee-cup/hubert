@@ -24,8 +24,8 @@ config :logger, :console,
 
 # Configures basic auth
 config :hubert, basic_auth: [
-  username: "username",
-  password: "hello",
+  username: {:system, "AUTH_BASIC_USERNAME"},
+  password: {:system, "AUTH_BASIC_PASSWORD"},
   realm: "hubert"
  ]
 
