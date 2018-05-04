@@ -1,6 +1,6 @@
-<div id="<%= Sensor.slug(@sensor) %>-value" class="sensor-value">
+<div id="<%= Sensor.slug(@sensor) %>-value" class="sensor-value mh2-ns">
   <h2 class="bg-light-green pv1-ns ph2-ns pv2 ph3 mb0"><%= Map.get(@sensor, :name) %></h2>
-  <h1 class="f-headline-ns f1-m f-subheadline bold mt1-ns mb2-ns mv4 tc value">
+  <h1 class="f-headline-ns f1-m f-subheadline bold ph0-ns ph3 mt1-ns mb2-ns mv4 value">
     <%= Map.get(List.last(Map.get(@sensor, :points)) || %{value: 0}, :value) %> <%= Map.get(@sensor, :symbol) %>
   </h1>
 </div>

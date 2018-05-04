@@ -38,3 +38,8 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+.sensor-value {
+    flex-basis: 0;
+    flex-grow: 1;
+}
