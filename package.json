@@ -12,6 +12,10 @@
     "build": "NODE_ENV=production MIX_ENV=prod webpack -p --mode=production --progress",
     "test": "mix test && npm run build"
   },
+  "engines": {
+    "node": ">=9.11.1",
+    "npm" : ">=5.6.0"
+  },
   "author": "Jake Runzer <=>",
   "license": "MIT",
   "dependencies": {
