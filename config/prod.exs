@@ -23,7 +23,7 @@ config :hubert, HubertWeb.Endpoint,
 # Configure database
 config :hubert, Hubert.Repo,
   adapter: Ecto.Adapters.Postgres,
-  url: {:system "DATABASE_URL"},
+  url: {:system, "DATABASE_URL"},
   pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
   ssl: true
 
