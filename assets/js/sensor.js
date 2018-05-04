@@ -1,4 +1,5 @@
 import Plotly from 'plotly.js/lib/core';
+import moment from 'moment-timezone';
 
 const sensorGraphParent = sensor =>
   document.querySelector(`#${sensor.slug}-graph`);
@@ -10,10 +11,16 @@ const sensorValueParent = sensor =>
 
 const sensorValue = sensor => sensorValueParent(sensor).querySelector('.value');
 
+const convertDateTime = date =>
+  moment
+    .utc(date)
+    .local()
+    .toISOString(true);
+
 const lineColour = '#4d3ae2';
 
 const createGraph = sensor => {
-  const x = sensor.points.map(p => p.date);
+  const x = sensor.points.map(p => convertDateTime(p.date));
   const y = sensor.points.map(p => p.value);
   const data = [
     {
@@ -69,7 +76,7 @@ const createGraph = sensor => {
 const sensorUpdate = (sensor, val) => {
   // Update the graph
   const update = {
-    x: [[val.date]],
+    x: [[convertDateTime(val.date)]],
     y: [[val.value]]
   };
 
