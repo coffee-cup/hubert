@@ -1,8 +1,8 @@
 <div class="home vh vertical-center">
   <div class="w-50">
-    <h1 class="mt0">This is Hubert.</h1>
-    <ul class="systems none ml2">
-      <li class="plants">
+    <h1 class="mv0 f1">Hubert.</h1>
+    <ul class="systems none">
+      <li class="plants f3">
         <a href="/plants">Plants</a>
       </li>
     </ul>
