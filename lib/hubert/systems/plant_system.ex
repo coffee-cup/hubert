@@ -92,7 +92,7 @@ defmodule Hubert.Systems.PlantSystem do
     s_temp = temp_sensor()
 
     {:ok, p_moisture} = Data.create_point(%{value: moisture_value}, s_moisture)
-    {:ok, p_light} = Data.create_point(%{value: light_value}, s_light)
+    {:ok, p_light} = Data.create_point(%{value: light_value}  s_light)
     {:ok, p_temp} = Data.create_point(%{value: temp_value}, s_temp)
 
     %{

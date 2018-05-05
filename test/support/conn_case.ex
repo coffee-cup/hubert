@@ -22,8 +22,8 @@ defmodule HubertWeb.ConnCase do
       import HubertWeb.Router.Helpers
 
       defp using_basic_auth(conn) do
-        username = Application.get_env(:hubert, :basic_auth)[:username]
-        password = Application.get_env(:hubert, :basic_auth)[:password]
+        username = System.get_env("AUTH_BASIC_USERNAME")
+        password = System.get_env("AUTH_BASIC_PASSWORD")
 
         header_content = "Basic " <> Base.encode64("#{username}:#{password}")
         conn |> put_req_header("authorization", header_content)

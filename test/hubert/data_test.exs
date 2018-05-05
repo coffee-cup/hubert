@@ -55,8 +55,8 @@ defmodule Hubert.DataTest do
       @point_attrs |> Map.update!(:value, fn (_) -> 2 end) |> Data.create_point(sensor)
 
       [p1, p2] = Data.get_points(sensor)
-      assert Map.get(p1, :value) == 2
-      assert Map.get(p2, :value) == 1
+      assert Map.get(p1, :value) == 1
+      assert Map.get(p2, :value) == 2
     end
 
     test "get_sensor/1 includes preloaded data points", %{sensor: %Sensor{
@@ -67,8 +67,8 @@ defmodule Hubert.DataTest do
 
       %Sensor{points: [p1, p2] = points} = Data.get_sensor_and_points(sensor_name, system_id)
       assert Enum.count(points) == 2
-      assert Map.get(p1, :value) == 2
-      assert Map.get(p2, :value) == 1
+      assert Map.get(p1, :value) == 1
+      assert Map.get(p2, :value) == 2
     end
   end
 end
