@@ -1,10 +1,8 @@
 defmodule Hubert.DataTest do
   use Hubert.DataCase
 
-  alias Hubert.System
   alias Hubert.Data
   alias Hubert.Data.Sensor
-  alias Hubert.Data.Point
 
   @system_name "Test System"
   @sensor_attrs %{name: "test sensor", symbol: "km", units: "Kilometers"}

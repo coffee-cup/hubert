@@ -24,9 +24,6 @@ defmodule Hubert.Systems.PlantSystemTest do
       temp = 23.4
 
       %{
-        s_moisture: s_moisture,
-        s_light: s_light,
-        s_temp: s_temp,
         p_moisture: p_moisture,
         p_light: p_light,
         p_temp: p_temp
