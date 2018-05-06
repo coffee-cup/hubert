@@ -1,14 +1,38 @@
 import Plotly from 'plotly.js/lib/core';
 import moment from 'moment-timezone';
 
+const rangeButtons = [
+  {
+    el: document.querySelector('#range-all'),
+    startFn: (sensor, now) => {
+      if (sensor.points.length === 0) {
+        return now;
+      }
+
+      return moment(sensor.points[0].date);
+    }
+  },
+  {
+    el: document.querySelector('#range-day'),
+    startFn: (sensor, now) => {
+      return now.subtract(1, 'd');
+    }
+  },
+  {
+    el: document.querySelector('#range-hour'),
+    startFn: (sensor, now) => {
+      return now.subtract(1, 'h');
+    }
+  }
+];
+
+let range = rangeButtons[0];
+
 const sensorGraphParent = sensor =>
   document.querySelector(`#${sensor.slug}-graph`);
-
 const sensorGraph = sensor => sensorGraphParent(sensor).querySelector('.graph');
-
 const sensorValueParent = sensor =>
   document.querySelector(`#${sensor.slug}-value`);
-
 const sensorValue = sensor => sensorValueParent(sensor).querySelector('.value');
 
 const convertDateTime = date =>
@@ -17,11 +41,21 @@ const convertDateTime = date =>
     .local()
     .toISOString(true);
 
+const setRange = sensor => {
+  // console.log(window.fuck);
+  // console.log(window.fuck.startFn(sensor, moment()));
+  Plotly.relayout(sensorGraph(sensor), 'xaxis.range', [
+    range.startFn(sensor, moment()).toISOString(true),
+    moment().toISOString(true)
+  ]);
+};
+
 const lineColour = '#4d3ae2';
 
 const createGraph = sensor => {
   const x = sensor.points.map(p => convertDateTime(p.date));
   const y = sensor.points.map(p => p.value);
+
   const data = [
     {
       x,
@@ -41,23 +75,23 @@ const createGraph = sensor => {
     }
   ];
 
+  const fontFamily = '"Montserrat", verdana, arial, san-serif';
+
   const yRange = sensor.units === 'Percent' ? [0, 100] : null;
   const layout = {
     title: sensor.name,
     autosize: true,
     titlefont: {
-      size: 24
-    },
-    xaxis: {
-      title: '',
-      titlefont: {
-        size: 18
-      }
+      size: 24,
+      family: fontFamily
     },
     yaxis: {
       range: yRange,
       title: sensor.units,
-      titlefont: { size: 18 }
+      titlefont: {
+        size: 18,
+        family: fontFamily
+      }
     },
     margin: {
       l: 60,
@@ -71,6 +105,7 @@ const createGraph = sensor => {
   };
 
   Plotly.newPlot(sensorGraph(sensor), data, layout);
+  setRange(sensor);
 };
 
 const sensorUpdate = (sensor, val) => {
@@ -81,6 +116,7 @@ const sensorUpdate = (sensor, val) => {
   };
 
   Plotly.extendTraces(sensorGraph(sensor), update, [0]);
+  setRange(sensor);
 
   // Update the value
   sensorValue(sensor).innerText = `${val.value} ${sensor.symbol}`;
@@ -96,9 +132,23 @@ const registerChannelUpdates = (socket, sensor) => {
     .receive('error', () => console.error(`${sensor.name} failed to join`));
 };
 
+const subscribeToRangeChanges = sensor => {
+  const updateActiveButton = btn => {
+    document.querySelector('.range-buttons .active').classList.remove('active');
+    btn.classList.add('active');
+  };
+
+  rangeButtons.forEach(btn => {
+    btn.el.addEventListener('click', () => {
+      updateActiveButton(btn.el);
+      range = btn;
+      setRange(sensor);
+    });
+  });
+};
+
 export const handleSensor = (socket, sensor) => {
   registerChannelUpdates(socket, sensor);
-
-  // setTimeout(() => createGraph(sensor), 2000);
+  subscribeToRangeChanges(sensor);
   createGraph(sensor);
 };

@@ -39,6 +39,20 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+button {
+    min-width: 6rem;
+    height: 2rem;
+    margin: 0 0.05rem;
+    padding-bottom: 1.4rem;
+    background-color: white;
+    border: solid 2px $darkgray;
+    font-weight: bold;
+
+    &.active {
+        background-color: $lightgreen;
+    }
+}
+
 .sensor-value {
     flex-basis: 0;
     flex-grow: 1;

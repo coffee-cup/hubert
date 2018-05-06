@@ -9,6 +9,12 @@
     <%= render HubertWeb.SharedView, "sensor_value.html", Map.put(assigns, :sensor, @temp) %>
   </div>
 
+  <div class="range-buttons mt3 hide-small">
+    <button id="range-all" class="active">All</button>
+    <button id="range-day">24h</button>
+    <button id="range-hour">hour</button>
+  </div>
+
   <div class="graphs">
     <%= render HubertWeb.SharedView, "sensor_graph.html", Map.put(assigns, :sensor, @moisture) %>
     <%= render HubertWeb.SharedView, "sensor_graph.html", Map.put(assigns, :sensor, @light) %>
