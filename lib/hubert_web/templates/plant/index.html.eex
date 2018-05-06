@@ -10,7 +10,7 @@
   </div>
 
   <div class="range-buttons mt3 hide-small">
-    <button id="range-all" class="active">All</button>
+    <button id="range-all">All</button>
     <button id="range-day">24h</button>
     <button id="range-hour">hour</button>
   </div>

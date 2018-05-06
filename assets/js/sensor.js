@@ -26,7 +26,9 @@ const rangeButtons = [
   }
 ];
 
-let range = rangeButtons[0];
+const rangeIndex = localStorage.getItem('range') || 0;
+let range = rangeButtons[rangeIndex];
+range.el.classList.add('active');
 
 const sensorGraphParent = sensor =>
   document.querySelector(`#${sensor.slug}-graph`);
@@ -138,10 +140,11 @@ const subscribeToRangeChanges = sensor => {
     btn.classList.add('active');
   };
 
-  rangeButtons.forEach(btn => {
+  rangeButtons.forEach((btn, index) => {
     btn.el.addEventListener('click', () => {
       updateActiveButton(btn.el);
       range = btn;
+      localStorage.setItem('range', index);
       setRange(sensor);
     });
   });
