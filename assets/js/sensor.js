@@ -9,7 +9,7 @@ const rangeButtons = [
         return now;
       }
 
-      return moment(sensor.points[0].date);
+      return moment.utc(sensor.points[0].date).local();
     }
   },
   {
