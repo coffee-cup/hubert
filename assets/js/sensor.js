@@ -44,8 +44,6 @@ const convertDateTime = date =>
     .toISOString(true);
 
 const setRange = sensor => {
-  // console.log(window.fuck);
-  // console.log(window.fuck.startFn(sensor, moment()));
   Plotly.relayout(sensorGraph(sensor), 'xaxis.range', [
     range.startFn(sensor, moment()).toISOString(true),
     moment().toISOString(true)
