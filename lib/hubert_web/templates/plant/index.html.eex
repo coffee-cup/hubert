@@ -11,8 +11,8 @@
 
   <div class="range-buttons mt3 hide-small">
     <button id="range-all">All</button>
+    <button id="range-week">7d</button>
     <button id="range-day">24h</button>
-    <button id="range-hour">hour</button>
   </div>
 
   <div class="graphs">

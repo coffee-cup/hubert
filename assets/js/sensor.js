@@ -19,9 +19,9 @@ const rangeButtons = [
     }
   },
   {
-    el: document.querySelector('#range-hour'),
+    el: document.querySelector('#range-week'),
     startFn: (sensor, now) => {
-      return now.subtract(1, 'h');
+      return now.subtract(7, 'd');
     }
   }
 ];
