@@ -4,7 +4,7 @@ Home automation system written with [Elixir Phoenix](http://www.phoenixframework
 
 So far the only systems are
 
-- [Plant monitoring station](https://https://github.com/coffee-cup/plant-station)
+- [Plant monitoring station](https://github.com/coffee-cup/plant-station)
   + Soil moisture
   + Air temperature
   + Sunlight
